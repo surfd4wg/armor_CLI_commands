@@ -50,14 +50,14 @@ sudo /opt/armor/armor ips list-assigned-rules | sed -n '/time=/!p' | sed 's/[^{]
 
 #-----
 
-All in one (Trent Agent Status - Malware):
+# All in one (Trent Agent Status - Malware):
 sudo /opt/armor/armor trend status | sed -n '/time=/!p' | sed 's/[^{]*\({.*\)/\1/' | jq  '{"antiMalware state": .antiMalware.state, "antiMalware status": .antiMalware.moduleStatus.agentStatus, "antiMalware message": .antiMalware.moduleStatus.agentStatusMessage}'
 
-All in one (Trent Agent Status - IDS/IPS):
+# All in one (Trent Agent Status - IDS/IPS):
 sudo /opt/armor/armor trend status | sed -n '/time=/!p' | sed 's/[^{]*\({.*\)/\1/' | jq  '{"intrusionPrevention state": .intrusionPrevention.state, "intrusionPrevention status": .intrusionPrevention.moduleStatus.agentStatus, "intrusionPrevention message": .intrusionPrevention.moduleStatus.agentStatusMessage}'
 
-All in one (Trent Agent Status - FIM):
+# All in one (Trent Agent Status - FIM):
 sudo /opt/armor/armor trend status | sed -n '/time=/!p' | sed 's/[^{]*\({.*\)/\1/' | jq  '{"integrityMonitoring state": .integrityMonitoring.state, "integrityMonitoring status": .integrityMonitoring.moduleStatus.agentStatus, "integrityMonitoringmessage": .integrityMonitoring.moduleStatus.agentStatusMessage}'
 
-All in one (Trent Agent Status - Malware):
+# All in one (Trent Agent Status - Malware):
 sudo /opt/armor/armor trend status | sed -n '/time=/!p' | sed 's/[^{]*\({.*\)/\1/' | jq '{ "hostName", "lastIPUsed", "platform" }'
