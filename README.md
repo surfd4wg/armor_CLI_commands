@@ -1,4 +1,4 @@
-##### armor_agent_CLI_commands #####
+##### armor_agent_3.0_CLI_commands #####
 
 Get UUID from Linux system:
 sudo dmidecode | grep UUID
