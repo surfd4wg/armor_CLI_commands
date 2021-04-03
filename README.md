@@ -4,7 +4,7 @@ Get UUID from Linux system:
 sudo dmidecode | grep UUID
 
 ##### Trend Agent #####
-All of the Trend statuses: (Put into a armorstatus.sh file, chmod +x, then ./armorstatus.sh)
+# All of the Trend statuses: (Put into a armorstatus.sh file, chmod +x, then ./armorstatus.sh)
 sudo /opt/armor/armor trend status | sed -n '/time=/!p' | sed 's/[^{]*\({.*\)/\1/' | jq '.' > armorstatus.txt 2>/dev/null
 sudo jq '{ "hostName", "lastIPUsed", "platform" }' armorstatus.txt 2>/dev/null
 sudo jq  '{"integrityMonitoring state": .integrityMonitoring.state, "integrityMonitoring status": .integrityMonitoring.moduleStatus.agentStatus, "integrityMonitoringmessage": .integrityMonitoring.moduleStatus.agentStatusMessage}' armorstatus.txt 2>/dev/null
